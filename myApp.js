@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express();
 const helmet = require('helmet');
-
+const ninetyDaysInSeconds= 60 * 60 * 24 * 365; // 1 year in seconds
 app.use(helmet.hidePoweredBy());
 app.use(helmet.frameguard({ action: 'deny' }));
 app.use(helmet.xssFilter());
 app.use(helmet.noSniff());
 app.use(helmet.ieNoOpen());
+app.use(helmet.hsts({
+  maxAge: ninetyDaysInSeconds, // 1 year in seconds
+  force: true,
+}));
 app.disable('x-powered-by');
 
 
