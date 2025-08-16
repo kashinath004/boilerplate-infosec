@@ -3,6 +3,8 @@ const app = express();
 const helmet = require('helmet');
 
 app.use(helmet());
+app.disable('x-powered-by');
+
 
 
 
