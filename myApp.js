@@ -13,7 +13,7 @@ app.use(helmet.hsts({
 }));
 app.use(helmet.dnsPrefetchControl({ allow: false }));
 app.disable('x-powered-by');
-
+app.use(helmet.noCache());
 
 
 
