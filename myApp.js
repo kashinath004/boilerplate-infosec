@@ -11,6 +11,7 @@ app.use(helmet.hsts({
   maxAge: ninetyDaysInSeconds, // 1 year in seconds
   force: true,
 }));
+app.use(helmet.dnsPrefetchControl({ allow: false }));
 app.disable('x-powered-by');
 
 
